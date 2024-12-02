@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xtremely Realistic Price (XRP)</title>
+    <style>
+        body {
+            font-family: Comic Sans MS, cursive, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #ffcccb;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        main {
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        .logo-container {
+            margin: 20px auto;
+        }
+
+        .logo {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 3px solid black;
+            object-fit: cover;
+            margin: 20px auto;
+        }
+
+        .price {
+            font-size: 2.5em;
+            color: #32cd32;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .tagline {
+            font-size: 1.8em;
+            font-style: italic;
+            margin: 20px 0;
+            color: #444;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .round-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .round-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .buy-button {
+            width: auto;
+            padding: 0 30px;
+            height: 60px;
+            border-radius: 30px;
+            background-color: #32cd32;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-transform: uppercase;
+        }
+
+        .twitter-button {
+            background-color: #1DA1F2;
+        }
+
+        .telegram-button {
+            background-color: #0088cc;
+        }
+
+        .media-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            margin: 30px auto;
+            max-width: 1200px;
+        }
+
+        .media-item {
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .media-item.xrp1 {
+            aspect-ratio: 499/324;
+        }
+        
+        .media-item.xrp1 img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .media-item.xrp2 {
+            aspect-ratio: 1236/1053;
+        }
+        
+        .media-item.xrp2 img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .media-item.xrp4 {
+            aspect-ratio: 757/128;
+        }
+        
+        .media-item.xrp4 img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .media-item.xrp5 {
+            aspect-ratio: 600/476;
+        }
+        
+        .media-item.xrp5 img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .media-item.item-video {
+            grid-column: 1 / -1;
+            aspect-ratio: 9/16;
+            max-width: 400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .media-item.item-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sound-control {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .media-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .media-item.item-video {
+                grid-column: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Xtremely Realistic Price (XRP)</h1>
+        <p>The Coin of the masses. Flipping eth wen! 🚀</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Future Price: <span class="price">$10</span></h2>
+            <div class="logo-container">
+                <h2>Xtremely Realistic Price</h2>
+                <img src="images/xrplogofinal.png" alt="XRP Logo" class="logo">
+                <p class="tagline">The Coin of the Masses</p>
+            </div>
+
+            <div class="social-buttons">
+                <button class="round-button twitter-button" onclick="window.open('https://twitter.com/', '_blank')">
+                    <svg fill="#ffffff" width="30" height="30" viewBox="0 0 24 24">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </button>
+                
+                <button class="round-button telegram-button" onclick="window.open('https://telegram.org/', '_blank')">
+                    <svg fill="#ffffff" width="30" height="30" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.51 3.67-.52.36-.99.54-1.42.53-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.75 3.99-1.73 6.65-2.87 7.97-3.44 3.78-1.62 4.57-1.9 5.08-1.91.12 0 .39.03.56.18.17.14.22.33.24.48.02.19.03.35.02.49z"/>
+                    </svg>
+                </button>
+                
+                <button class="round-button buy-button" onclick="window.open('#', '_blank')">
+                    Buy Now!
+                </button>
+            </div>
+        </section>
+
+        <section class="media-gallery">
+            <div class="media-item xrp1">
+                <img src="images/xrp1.webp" alt="XRP Price Prediction">
+            </div>
+            
+            <div class="media-item xrp2">
+                <img src="images/xrp2.png" alt="XRP Moon">
+            </div>
+            
+            <div class="media-item item-video">
+                <video id="priceVideo" loop playsinline>
+                    <source src="images/xrp3.mov" type="video/quicktime">
+                    <source src="images/xrp3.mov" type="video/mp4">
+                </video>
+                <button class="sound-control" onclick="toggleSound()">🔇</button>
+            </div>
+            
+            <div class="media-item xrp4">
+                <img src="images/xrp4.PNG" alt="XRP Future">
+            </div>
+
+            <div class="media-item xrp5">
+                <img src="images/xrp5.png" alt="XRP New Prediction">
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('priceVideo');
+            let isVideoMuted = true;
+
+            // Initial setup
+            video.muted = true;
+            
+            // Try to play immediately
+            const playVideo = async () => {
+                try {
+                    await video.play();
+                } catch (err) {
+                    console.log('Video autoplay failed:', err);
+                }
+            };
+            
+            playVideo();
+
+            // Intersection Observer for scroll behavior
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            video.play().catch(err => console.log('Play failed:', err));
+                        } else {
+                            video.pause();
+                        }
+                    });
+                },
+                { threshold: 0.5 }
+            );
+
+            observer.observe(video);
+
+            // Sound toggle function
+            window.toggleSound = function() {
+                isVideoMuted = !isVideoMuted;
+                video.muted = isVideoMuted;
+                const soundButton = document.querySelector('.sound-control');
+                soundButton.textContent = isVideoMuted ? '🔇' : '🔊';
+            };
+
+            // Add click to play/pause
+            video.addEventListener('click', function() {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
