@@ -167,7 +167,6 @@
             aspect-ratio: 9/16;
             max-width: 400px;
             margin: 0 auto;
-            position: relative;
         }
 
         .media-item.item-video video {
@@ -207,7 +206,7 @@
 <body>
     <header>
         <h1>Xtremely Realistic Price (XRP)</h1>
-        <p>The Coin of the masses. Flipping eth wen! 🚀</p>
+        <p>The coin of the masses! Flipping eth wen? 🚀</p>
     </header>
 
     <main>
@@ -220,19 +219,19 @@
             </div>
 
             <div class="social-buttons">
-                <button class="round-button twitter-button" onclick="window.open('https://twitter.com/', '_blank')">
+                <button class="round-button twitter-button" onclick="window.open('https://x.com/XRealisticP', '_blank')">
                     <svg fill="#ffffff" width="30" height="30" viewBox="0 0 24 24">
                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                     </svg>
                 </button>
                 
-                <button class="round-button telegram-button" onclick="window.open('https://telegram.org/', '_blank')">
+                <button class="round-button telegram-button" onclick="window.open('https://t.me/XtremelyRealisticPrice', '_blank')">
                     <svg fill="#ffffff" width="30" height="30" viewBox="0 0 24 24">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.51 3.67-.52.36-.99.54-1.42.53-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.75 3.99-1.73 6.65-2.87 7.97-3.44 3.78-1.62 4.57-1.9 5.08-1.91.12 0 .39.03.56.18.17.14.22.33.24.48.02.19.03.35.02.49z"/>
                     </svg>
                 </button>
                 
-                <button class="round-button buy-button" onclick="window.open('#', '_blank')">
+                <button class="round-button buy-button" onclick="window.open('https://pump.fun/board', '_blank')">
                     Buy Now!
                 </button>
             </div>
@@ -247,13 +246,49 @@
                 <img src="images/xrp2.png" alt="XRP Moon">
             </div>
             
-            <div class="media-item item-video">
-                <video id="priceVideo" loop playsinline>
-                    <source src="images/xrp3.mov" type="video/quicktime">
-                    <source src="images/xrp3.mov" type="video/mp4">
-                </video>
-                <button class="sound-control" onclick="toggleSound()">🔇</button>
-            </div>
+            <!-- Replace the existing video container with this -->
+<div class="media-item item-video">
+    <div class="media-wrapper">
+        <video id="priceVideo" loop playsinline autoplay>
+            <source src="images/xrp3.mov" type="video/quicktime">
+            <source src="images/xrp3.mov" type="video/mp4">
+        </video>
+        <button class="sound-control" onclick="toggleSound()">🔇</button>
+    </div>
+</div>
+
+<!-- Replace the existing script with this -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const video = document.getElementById('priceVideo');
+        let isVideoMuted = true;
+        video.muted = true; // Start muted
+
+        // Play video immediately
+        video.play().catch(function(error) {
+            console.log("Video autoplay failed:", error);
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(video);
+
+        window.toggleSound = function() {
+            isVideoMuted = !isVideoMuted;
+            video.muted = isVideoMuted;
+            const soundButton = document.querySelector('.sound-control');
+            soundButton.textContent = isVideoMuted ? '🔇' : '🔊';
+        }
+    });
+</script>
             
             <div class="media-item xrp4">
                 <img src="images/xrp4.PNG" alt="XRP Future">
@@ -270,52 +305,30 @@
             const video = document.getElementById('priceVideo');
             let isVideoMuted = true;
 
-            // Initial setup
-            video.muted = true;
-            
-            // Try to play immediately
-            const playVideo = async () => {
-                try {
-                    await video.play();
-                } catch (err) {
-                    console.log('Video autoplay failed:', err);
-                }
-            };
-            
-            playVideo();
-
-            // Intersection Observer for scroll behavior
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            video.play().catch(err => console.log('Play failed:', err));
-                        } else {
-                            video.pause();
-                        }
-                    });
-                },
-                { threshold: 0.5 }
-            );
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        video.play();
+                        video.muted = false;
+                        isVideoMuted = false;
+                        document.querySelector('.sound-control').textContent = '🔊';
+                    } else {
+                        video.pause();
+                        video.muted = true;
+                        isVideoMuted = true;
+                        document.querySelector('.sound-control').textContent = '🔇';
+                    }
+                });
+            }, { threshold: 0.5 });
 
             observer.observe(video);
 
-            // Sound toggle function
             window.toggleSound = function() {
                 isVideoMuted = !isVideoMuted;
                 video.muted = isVideoMuted;
                 const soundButton = document.querySelector('.sound-control');
                 soundButton.textContent = isVideoMuted ? '🔇' : '🔊';
-            };
-
-            // Add click to play/pause
-            video.addEventListener('click', function() {
-                if (video.paused) {
-                    video.play();
-                } else {
-                    video.pause();
-                }
-            });
+            }
         });
     </script>
 </body>
